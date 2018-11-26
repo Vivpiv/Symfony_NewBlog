@@ -27,7 +27,14 @@ class Tag
      * @ORM\ManyToMany(targetEntity="App\Entity\Article", inversedBy="tags")
      */
     private $articles;
-
+    
+    public function __toString()
+    {
+        // to show the name of the Category in the select
+        return $this->name;
+    }
+    
+    
     public function __construct()
     {
         $this->articles = new ArrayCollection();
